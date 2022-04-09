@@ -38,6 +38,7 @@
             .when("/shop", { templateUrl: "./pages/ec_shop.html", controller: "ec_shop_ctrl" })
             .when("/detals", { templateUrl: "./pages/ec_details.html", controller: "ec_details_ctrl" })
             .when("/cart", { templateUrl: "./pages/ec_cart.html", controller: "ec_cart_ctrl" })
+            .when("/payment_history", { templateUrl: "./pages/ec_payment_history.html", controller: "ec_payment_history_ctrl" })
             .when("/checkout", { templateUrl: "./pages/ec_checkout.html", controller: "ec_checkout_ctrl" })
             .when("/payment", { templateUrl: "./pages/ec_payment.html", controller: "ec_payment_ctrl" })
             .when("/thankyou", { templateUrl: "./pages/ec_thankyou.html", controller: "ec_thankyou_ctrl" })
@@ -58,6 +59,10 @@
 
     japanese_ceramics_app.controller("ec_cart_ctrl", function ($scope, $rootScope) {
         $scope.title = "Cart";
+    });
+
+    japanese_ceramics_app.controller("ec_payment_history_ctrl", function ($scope, $rootScope) {
+        $scope.title = "Payment history";
     });
 
     japanese_ceramics_app.controller("ec_checkout_ctrl", function ($scope) {
