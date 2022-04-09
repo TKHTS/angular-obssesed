@@ -1,0 +1,25 @@
+/* 
+Color code
+blue:#0E3C7F
+gold:#CAA846
+gray:#EFF2F6
+*/
+
+.text-blue{
+    color: #0E3C7F;
+}
+.bg-blue{
+    background-color: #0E3C7F;
+}
+.text-gold{
+    color: #CAA846;
+}
+.bg-gold{
+    background-color: #CAA846;
+}
+.text-gray{
+    color: #EFF2F6;
+}
+.bg-gray{
+    background-color: #EFF2F6;
+}

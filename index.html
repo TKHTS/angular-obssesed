@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese Ceramics</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body ng-app="japanese_ceramics_app">
+    <nav class="d-flex align-items-center w-100">
+        <ul class="bg-blue list-unstyled d-flex align-items-center p-2 m-0 w-100">
+            <li class="py-2 px-4">
+                <h3 class="m-0"><a class="text-white text-decoration-none" href="#/!">Japanese Ceramics</a></h3>
+            </li>
+            <li class="py-2 px-4"><a class="text-white text-decoration-none" href="#!shop">Shop</a></li>
+            <li class="py-2 px-5 ml-auto"><a class="text-decoration-none text-white" href="#!cart"><i
+                        class="bi-bag mx-2"></i>Cart</a></li>
+        </ul>
+    </nav>
+    <main ng-view>
+    </main>
+
+</body>
+<script>
+    let japanese_ceramics_app = angular.module('japanese_ceramics_app', ['ngRoute']);
+
+    japanese_ceramics_app.config(function ($routeProvider) {
+        $routeProvider
+            .when("/", { templateUrl: "./pages/ec_top.html", controller: "ec_top_ctrl" })
+            .when("/shop", { templateUrl: "./pages/ec_shop.html", controller: "ec_shop_ctrl" })
+            .when("/detals", { templateUrl: "./pages/ec_details.html", controller: "ec_details_ctrl" })
+            .when("/cart", { templateUrl: "./pages/ec_cart.html", controller: "ec_cart_ctrl" })
+            .when("/checkout", { templateUrl: "./pages/ec_checkout.html", controller: "ec_checkout_ctrl" })
+            .when("/payment", { templateUrl: "./pages/ec_payment.html", controller: "ec_payment_ctrl" })
+            .when("/thankyou", { templateUrl: "./pages/ec_thankyou.html", controller: "ec_thankyou_ctrl" })
+            .otherwise({ templateUrl: "./pages/404.html" });
+    });
+
+    japanese_ceramics_app.controller("ec_top_ctrl", function ($scope) {
+        $scope.title = "Top";
+    });
+
+    japanese_ceramics_app.controller("ec_shop_ctrl", function ($scope) {
+        $scope.title = "Products";
+    });
+
+    japanese_ceramics_app.controller("ec_details_ctrl", function ($scope, $rootScope) {
+        $scope.title = "Detail";
+    });
+
+    japanese_ceramics_app.controller("ec_cart_ctrl", function ($scope, $rootScope) {
+        $scope.title = "Cart";
+    });
+
+    japanese_ceramics_app.controller("ec_checkout_ctrl", function ($scope) {
+        $scope.title = "Checkout";
+    });
+
+    japanese_ceramics_app.controller("ec_payment_ctrl", function ($scope, $rootScope) {
+        $scope.title = "Payment";
+    });
+
+    japanese_ceramics_app.controller("ec_thankyou_ctrl", function ($scope, $rootScope) {
+        $scope.title = "Thank you for your purchase";
+    });
+
+</script>
+
+</html>
