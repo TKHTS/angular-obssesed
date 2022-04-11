@@ -1,12 +1,68 @@
 <h1>{{title}}</h1>
 
-<div>
-    <a href="#!checkout">
-        <button class="btn bg-blue text-white rounded-0">Continue to checkout</button>
-    </a>
+<div class="cartpage">
+<div  class="item">
+    <div class="image">
+        <img class="cartimg" src="./img/products/cup1.jpg" alt="">
+    </div>
+    <div class="sidedetail">
+    <div class="discription">
+        <h2>Name</h2>
+        <h3>Price</h3>
+        <p>quantity</p>
+    </div>
+    <div class="button">
+        <button type="button">Remove</button>
+    </div>
+    </div>
 </div>
-<div>
-    <a href="#!payment_history">
-        <button class="btn mt-4 bg-gold text-white rounded-0">Check payment history</button>
-    </a>
+
+<div class="summary">
+    <h3>Order Summary</h3>
+    <div class="eachprice">
+                
+    
+    <table>
+        <tr>
+          <th>
+             Subtotal 
+          </th>
+          <td>
+              $
+          </td>
+        </tr>
+        <tr>
+            <th>
+             Shipping
+            </th>
+            <td>
+            $
+            </td>
+        </tr>
+        <hr>
+        <tr>
+            <th class="total">
+             Total
+            </th>
+            <td class="total">
+            $
+            </td>
+        </tr>
+
+    </table>
+    </div>
+    <div class="buttons">
+        <div class="checkout">
+            <a href="#!checkout">
+                <button class="btn bg-blue text-white rounded-0 checkouts1">Continue to checkout</button>
+            </a>
+        </div>
+        <div class="history">
+            <a href="#!payment_history">
+                <button class="btn mt-4 bg-gold text-white rounded-0 checkouts2">Check payment history</button>
+            </a>
+        </div>
+        </div>       
+    </div>
+
 </div>
