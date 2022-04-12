@@ -70,30 +70,81 @@ gray:#EFF2F6
 
 .item {
     margin: 50px 60px 50px 100px;
-    width: 700px;
+    width: 40%;
+    float: left;
+
 }
 
-.summary {
-    float: right;
-    margin-right: 100px;
+.image{
+    float: left;
+}
+
+
+
+.ordersummary {
+    float: left;
+    width: 40%;
+    margin-top: 50px;
+
 }
 
 .eachprice table{
-    width: 500px;
+    width: 80%;
 }
+
+
 
 .total{
     padding-top: 50px;
+    border-top: 5px solid black;
+}
+
+.buttons{
+    margin-top: 60px;
 }
 
 .checkouts1, .checkouts2{
-    width: 500px;
+    width: 100%;
 } 
 
-.checkout{
-    margin-top: 70px;
+.checkout2{
+    width: 40%;
+    margin: 50px 200px 40px 100px;
+    float: left;
 }
+
 .history{
     margin-top: 70px;
+
+}
+
+.checkoutforms{
+    width: 90%;
+}
+
+
+
+.paybtn {
+    margin-top: 100px;
+    width: 200px;
+    height: 50px;
+    margin-left: 25%;
+    margin-bottom: 100px;
+}
+
+.checkoutCart{
+    float:left;
+    margin-top: 50px;
+    width: 30%;
+
+}
+
+.checkoutCart hr{
+    width: 100%;
+}
+
+.totalTable table{
+    margin-top: 100px;
+    width: 100%;
 }
 
