@@ -45,11 +45,11 @@
             .otherwise({ templateUrl: "./pages/404.html" });
     });
 
-    japanese_ceramics_app.controller("ec_top_ctrl", function ($scope) {
+    japanese_ceramics_app.controller("ec_top_ctrl", function ($scope, $rootScope) {
         $scope.title = "Top";
     });
 
-    japanese_ceramics_app.controller("ec_shop_ctrl", function ($scope) {
+    japanese_ceramics_app.controller("ec_shop_ctrl", function ($scope,$rootScope) {
         $scope.title = "Products";
     });
 
@@ -65,7 +65,7 @@
         $scope.title = "Payment history";
     });
 
-    japanese_ceramics_app.controller("ec_checkout_ctrl", function ($scope) {
+    japanese_ceramics_app.controller("ec_checkout_ctrl", function ($scope, $rootScope) {
         $scope.title = "Checkout";
     });
 
