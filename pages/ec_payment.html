@@ -1,4 +1,79 @@
 <h1>{{title}}</h1>
-<a href="#!thankyou">
-    <button class="btn bg-blue text-white rounded-0">Pay</button>
-</a>
+
+
+
+<div class="payment">
+    <h1>Payment</h1>
+    <p><span style="font-weight: 100;">Address</span>&nbsp; &nbsp; &nbsp;&nbsp;<span style="letter-spacing: -0.22em;">---------</span> &nbsp; &nbsp; &nbsp;&nbsp;<span style="font-weight: 800;">Payment</span></p>
+
+    <div class="checkoutforms">
+        <p>Payment Information</p>
+        <form action="">
+        <input type="text" placeholder="First Name" style="width: 45%; height: 40px;float: left; margin-right: 10%; margin-bottom: 5%;">
+        <input type="text" placeholder="Last Name" style="width: 45%; height: 40px; float: left;margin-bottom: 5%;"><br>
+        <input id="ccn" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="Card Number" style="width:100%;height: 40px;margin-bottom: 5%;">
+        <input id="scn" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="3" placeholder="Security Code" style="width:30%;height: 40px;margin-bottom: 5%; margin-right: 10%;">
+        <input type="date" name="begin" placeholder="dd-mm-yyyy" value="" min="1997-01-01" max="2030-12-31"style="width:30%;height: 40px;margin-bottom:5%;">
+    </form>
+
+
+
+    </div>
+    <a href="#!thankyou">
+        <button class="btn bg-blue text-white rounded-0">Pay</button>
+    </a>
+
+</div>
+
+
+
+
+<div class="checkoutCart">
+    <div class="insideCart">
+        <h3>Your cart</h3>
+        <br><br>
+        <h4>Item name</h4>
+        <br>
+        <p>Quantity: {{num}}</p>
+        <h3>$</h3>
+        <hr>
+    </div>
+
+    <div class="totalTable">
+        <table>
+            <tr>
+              <th>
+                 Subtotal 
+              </th>
+              <td>
+                  $
+              </td>
+            </tr>
+            <tr>
+                <th>
+                 Shipping
+                </th>
+                <td>
+                $
+                </td>
+            </tr>
+            <tr>
+                <th class="total">
+                 Total
+                </th>
+                <td class="total">
+                $
+                </td>
+            </tr>
+    
+        </table>
+
+    </div>
+
+
+
+
+
+
+
+</div>
