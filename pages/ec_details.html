@@ -1,13 +1,11 @@
 <h1>{{title}}</h1>
 
-<img class="img-thumbnail" src="./img/products/cup1.jpg" width="500">
-
+<img class="img-thumbnail" src="{{itemData.image}}" width="500">
 <div class="txt">
-    <h2>Cup</h2>
-    <h4>$89</h4>
-    <p>Discription</p>
-    <input type="number" class="quantity"><br>
-    <a href="#!cart">
-        <button class="btn bg-blue text-white">Add to cart</button>
-    </a>
+    <h2>{{itemData.name}}</h2>
+    <h4>${{itemData.price}}</h4>
+    <p>{{itemData.discription}}</p>
+    <input type="number" class="quantity" ng-model="quantity"><br>
+    <button class="btn bg-blue text-white" ng-click="addToCart();">Add to cart</button>
+    <button class="btn bg-blue text-white" ng-click="removeFromCart();">Remove from cart</button>
 </div>
