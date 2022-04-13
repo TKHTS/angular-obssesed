@@ -5,6 +5,6 @@
     <h2>{{itemData.name}}</h2>
     <h4>${{itemData.price}}</h4>
     <p>{{itemData.discription}}</p>
-    <input type="number" class="quantity" ng-model="quantity"><br>
+    <input type="number" class="quantity" ng-model="quantity" min="1"><br>
     <button class="btn bg-blue text-white" ng-click="addToCart();">Add to cart</button>
 </div>
