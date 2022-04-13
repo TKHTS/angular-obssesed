@@ -52,12 +52,10 @@ gray:#EFF2F6
 
 .cartimg{
     width: 200px;
-    float: left;
+
 }
 
 .sidedetail{
-    float: left;
-    padding-left: 30px;
 }
 
 
@@ -70,26 +68,22 @@ gray:#EFF2F6
 
 .item {
     margin: 50px 60px 50px 100px;
-    width: 40%;
-    float: left;
-
 }
 
 .image{
-    float: left;
+
 }
 
 
 
 .ordersummary {
     float: left;
-    width: 40%;
     margin-top: 50px;
 
 }
 
 .eachprice table{
-    width: 80%;
+    width: 100%;
 }
 
 
