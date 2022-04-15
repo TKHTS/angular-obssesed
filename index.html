@@ -119,9 +119,23 @@
     });
 
     japanese_ceramics_app.controller("ec_checkout_ctrl", function ($scope, $rootScope) {
-        let Json_Data = {fname:$scope.fname, lname:$scope.lname, adress:$scope.adress, optional1:$scope.optional1, city:$scope.city, country:$scope.country, city:$scope.city, zip:$scope.zip, optional2:$scope.optional2, contact:$scope.contact};
-        let send_data = JSON.stringify(Json_Data);
-        localStorage.setItem("User1Info",send_data);
+        /*$scope.saveInfo=()=>{
+            console.log($scope.fname); 
+        }*/
+        $scope.saveInfo=($event)=>{
+            console.log($scope.fname);
+            if ($scope.fname!= null || $scope.lname!=null || $scope.adress!=null || $scope.country!=null || $scope.city!=null || $scope.zip!=null) {
+                console.log("j");
+                let Json_Data = {fname:$scope.fname, lname:$scope.lname, adress:$scope.adress, optional1:$scope.optional1, country:$scope.country, city:$scope.city, zip:$scope.zip, optional2:$scope.optional2, contact:$scope.contact};
+                let send_data = JSON.stringify(Json_Data);
+                localStorage.setItem("User1Info",send_data);
+                $rootScope=$scope.contact
+            } else {
+                alert("Fill out everything but optionals")
+                $event.preventDefault()
+            }
+        }
+
         $rootScope.subTotal()
     });
 
