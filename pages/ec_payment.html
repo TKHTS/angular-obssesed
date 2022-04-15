@@ -29,43 +29,43 @@
 
 
 <div class="checkoutCart">
-    <div class="insideCart">
-        <h3>Your cart</h3>
-        <br><br>
-        <h4>Item name</h4>
-        <br>
-        <p>Quantity: {{num}}</p>
-        <h3>$</h3>
-        <hr>
+    <h3>Your cart</h3>
+    <div class="item border-bottom" ng-repeat="(key, item) in cart">
+            <div class="discription">
+                <h2>{{item.name}}</h2>
+                <h3>$ {{item.price}}</h3>
+                <p>Quantity: {{item.quantity}}</p>
+            </div>
     </div>
 
     <div class="totalTable">
         <table>
             <tr>
-              <th>
-                 Subtotal 
-              </th>
-              <td>
-                  $
-              </td>
+                <th>
+                    Subtotal
+                </th>
+                <td>
+                    $ {{subTotal();}}
+                </td>
             </tr>
             <tr>
                 <th>
-                 Shipping
+                    Shipping
                 </th>
                 <td>
-                $
+                    $ {{shippingFee}}
                 </td>
             </tr>
+
             <tr>
                 <th class="total">
-                 Total
+                    Total
                 </th>
                 <td class="total">
-                $
+                    $ {{totalPrice();}}
                 </td>
             </tr>
-    
+
         </table>
 
     </div>
