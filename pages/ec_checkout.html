@@ -42,30 +42,31 @@
     <div class="totalTable">
         <table>
             <tr>
-              <th>
-                 Subtotal 
-              </th>
-              <td>
-                  $
-              </td>
+                <th>
+                    Subtotal
+                </th>
+                <td>
+                    $ {{subTotal();}}
+                </td>
             </tr>
             <tr>
                 <th>
-                 Shipping
+                    Shipping
                 </th>
                 <td>
-                $
+                    $ {{shippingFee}}
                 </td>
             </tr>
+
             <tr>
                 <th class="total">
-                 Total
+                    Total
                 </th>
                 <td class="total">
-                $
+                    $ {{totalPrice();}}
                 </td>
             </tr>
-    
+
         </table>
 
     </div>
