@@ -120,6 +120,9 @@
 
     japanese_ceramics_app.controller("ec_checkout_ctrl", function ($scope, $rootScope) {
         $scope.title = "Checkout";
+        let Json_Data = {fname:$scope.fname, lname:$scope.lname, adress:$scope.adress, optional1:$scope.optional1, city:$scope.city, country:$scope.country, city:$scope.city, zip:$scope.zip, optional2:$scope.optional2, contact:$scope.contact};
+        let send_data = JSON.stringify(Json_Data);
+        localStorage.setItem("User1Info",send_data);
     });
 
     japanese_ceramics_app.controller("ec_payment_ctrl", function ($scope, $rootScope) {
