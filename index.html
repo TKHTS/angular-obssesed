@@ -119,25 +119,20 @@
         let load_data = localStorage.getItem("User1Info");
         let load_data_obj = JSON.parse(load_data);
         console.log(load_data_obj);
+        $scope.load_data_obj=load_data_obj
     });
 
     japanese_ceramics_app.controller("ec_checkout_ctrl", function ($scope, $rootScope) {
         $scope.saveInfo=($event)=>{
-            console.log($scope.fname);
-            console.log($scope.lname);
-            console.log($scope.address);
-            console.log($scope.country);
-            console.log($scope.city);
-            console.log($scope.zip);
             if ($scope.fname== null || $scope.lname==null || $scope.address==null || $scope.country==null || $scope.city==null || $scope.zip==null) {
 
                 alert("Fill out everything but optionals")
                 $event.preventDefault()
 
             } else {
-                /*let Json_Data = {fname:$scope.fname, lname:$scope.lname, adress:$scope.adress, optional1:$scope.optional1, country:$scope.country, city:$scope.city, zip:$scope.zip, optional2:$scope.optional2, contact:$scope.contact};
+                let Json_Data = {fname:$scope.fname, lname:$scope.lname, address:$scope.address, optional1:$scope.optional1, country:$scope.country, city:$scope.city, zip:$scope.zip, optional2:$scope.optional2, contact:$scope.contact};
                 let send_data = JSON.stringify(Json_Data);
-                localStorage.setItem("User1Info",send_data);*/
+                localStorage.setItem("User1Info",send_data);
             }
         }
 
@@ -151,9 +146,9 @@
                 alert("Fill out everything but optionals")
                 $event.preventDefault()
             } else {
-                let Json_Data = {fname:$scope.cFname, lname:$scope.cLname, adress:$scope.CCN, optional1:$scope.SCN, country:$scope.DMY};
-                let send_data = JSON.stringify(Json_Data);
-                localStorage.setItem("User1Info",send_data);             
+                Json_Data = {fname:$scope.cFname, lname:$scope.cLname, CCN:$scope.CCN, SCN:$scope.SCN, DMY:$scope.DMY};
+                send_data = JSON.stringify(Json_Data);
+                localStorage.setItem("User2Info",send_data);             
             }
         }
     });
