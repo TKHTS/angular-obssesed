@@ -116,19 +116,28 @@
 
     japanese_ceramics_app.controller("ec_payment_history_ctrl", function ($scope, $rootScope) {
         $scope.title = "Payment history";
+        let load_data = localStorage.getItem("User1Info");
+        let load_data_obj = JSON.parse(load_data);
+        console.log(load_data_obj);
     });
 
     japanese_ceramics_app.controller("ec_checkout_ctrl", function ($scope, $rootScope) {
         $scope.saveInfo=($event)=>{
             console.log($scope.fname);
-            if ($scope.fname!= null || $scope.lname!=null || $scope.adress!=null || $scope.country!=null || $scope.city!=null || $scope.zip!=null) {
-                let Json_Data = {fname:$scope.fname, lname:$scope.lname, adress:$scope.adress, optional1:$scope.optional1, country:$scope.country, city:$scope.city, zip:$scope.zip, optional2:$scope.optional2, contact:$scope.contact};
-                let send_data = JSON.stringify(Json_Data);
-                localStorage.setItem("User1Info",send_data);
-                $rootScope=$scope.contact
-            } else {
+            console.log($scope.lname);
+            console.log($scope.address);
+            console.log($scope.country);
+            console.log($scope.city);
+            console.log($scope.zip);
+            if ($scope.fname== null || $scope.lname==null || $scope.address==null || $scope.country==null || $scope.city==null || $scope.zip==null) {
+
                 alert("Fill out everything but optionals")
                 $event.preventDefault()
+
+            } else {
+                /*let Json_Data = {fname:$scope.fname, lname:$scope.lname, adress:$scope.adress, optional1:$scope.optional1, country:$scope.country, city:$scope.city, zip:$scope.zip, optional2:$scope.optional2, contact:$scope.contact};
+                let send_data = JSON.stringify(Json_Data);
+                localStorage.setItem("User1Info",send_data);*/
             }
         }
 
@@ -138,14 +147,13 @@
     japanese_ceramics_app.controller("ec_payment_ctrl", function ($scope, $rootScope) {
         $scope.title = "Payment";
         $scope.savePayInfo=($event)=>{
-            if ($scope.fname!= null || $scope.lname!=null || $scope.adress!=null || $scope.country!=null || $scope.city!=null || $scope.zip!=null) {
-                let Json_Data = {fname:$scope.fname, lname:$scope.lname, adress:$scope.adress, optional1:$scope.optional1, country:$scope.country, city:$scope.city, zip:$scope.zip, optional2:$scope.optional2, contact:$scope.contact};
-                let send_data = JSON.stringify(Json_Data);
-                localStorage.setItem("User1Info",send_data);
-                $rootScope=$scope.contact
-            } else {
+            if ($scope.cFname== null || $scope.cLname==null || $scope.CCN==null || $scope.SCN==null) {
                 alert("Fill out everything but optionals")
                 $event.preventDefault()
+            } else {
+                let Json_Data = {fname:$scope.cFname, lname:$scope.cLname, adress:$scope.CCN, optional1:$scope.SCN, country:$scope.DMY};
+                let send_data = JSON.stringify(Json_Data);
+                localStorage.setItem("User1Info",send_data);             
             }
         }
     });
