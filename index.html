@@ -112,7 +112,6 @@
 
     japanese_ceramics_app.controller("ec_cart_ctrl", function ($scope, $rootScope) {
         $scope.title = "Cart";
-        console.log($rootScope.isNoItem)
         //Check Whether items in cart or not
         $rootScope.isNoItem = (Object.keys($rootScope.cart).length == 0);
 
@@ -121,7 +120,6 @@
             delete $rootScope.cart[itemId];
             $rootScope.isNoItem = (Object.keys($rootScope.cart).length == 0);
             $rootScope.subTotal();
-            console.log($rootScope.isNoItem);
         }
     });
 
