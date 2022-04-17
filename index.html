@@ -106,20 +106,22 @@
             let newItem = { id: $scope.itemData.id, name: $scope.itemData.name, price: $scope.itemData.price, quantity: $scope.quantity, image: $scope.itemData.image, discription: $scope.itemData.discription };
             $rootScope.cart[newItem.id] = newItem;
             window.location = "#!cart";
+            $rootScope.isNoItem = false;
         }
     });
 
     japanese_ceramics_app.controller("ec_cart_ctrl", function ($scope, $rootScope) {
         $scope.title = "Cart";
-
+        console.log($rootScope.isNoItem)
         //Check Whether items in cart or not
-        $scope.isNoItem = (Object.keys($rootScope.cart).length == 0);
+        $rootScope.isNoItem = (Object.keys($rootScope.cart).length == 0);
 
         //Function for remove button
         $scope.removeFromCart = (itemId) => {
             delete $rootScope.cart[itemId];
-            $scope.isNoItem = (Object.keys($rootScope.cart).length == 0);
+            $rootScope.isNoItem = (Object.keys($rootScope.cart).length == 0);
             $rootScope.subTotal();
+            console.log($rootScope.isNoItem);
         }
     });
 

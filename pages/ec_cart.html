@@ -22,48 +22,50 @@
             </div>
         </div>
         <div class="col-12 col-md-6">
-            <div class="">
-                <h3>Order Summary</h3>
-                <br>
-                <div class="eachprice">
-                    <table>
-                        <tr>
-                            <th>
-                                Subtotal
-                            </th>
-                            <td>
-                                $ {{subTotal();}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                Shipping
-                            </th>
-                            <td>
-                                $ {{shippingFee}}
-                            </td>
-                        </tr>
+            <div>
+                <div ng-show="!isNoItem">
+                    <h3>Order Summary</h3>
+                    <br>
+                    <div class="eachprice">
+                        <table>
+                            <tr>
+                                <th>
+                                    Subtotal
+                                </th>
+                                <td>
+                                    $ {{subTotal();}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    Shipping
+                                </th>
+                                <td>
+                                    $ {{shippingFee}}
+                                </td>
+                            </tr>
 
-                        <tr>
-                            <th class="total">
-                                Total
-                            </th>
-                            <td class="total">
-                                $ {{totalPrice();}}
-                            </td>
-                        </tr>
+                            <tr>
+                                <th class="total">
+                                    Total
+                                </th>
+                                <td class="total">
+                                    $ {{totalPrice();}}
+                                </td>
+                            </tr>
 
-                    </table>
+                        </table>
+                    </div>
                 </div>
                 <div class="buttons">
-                    <div class="checkout">
+                    <div ng-show="!isNoItem" class="checkout mb-5">
                         <a href="#!checkout">
                             <button class="btn bg-blue text-white rounded-0 checkouts1">Continue to checkout</button>
                         </a>
                     </div>
-                    <div class="history">
+                    <div class="history m-0">
                         <a href="#!payment_history">
-                            <button class="btn mt-4 bg-gold text-white rounded-0 checkouts2">Check payment
+                            <button class="btn bg-gold text-white rounded-0 checkouts2">Check payment
                                 history</button>
                         </a>
                     </div>
