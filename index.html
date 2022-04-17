@@ -118,37 +118,72 @@
         $scope.title = "Payment history";
         let load_data = localStorage.getItem("User1Info");
         let load_data_obj = JSON.parse(load_data);
-        console.log(load_data_obj);
-        $scope.load_data_obj=load_data_obj
+
+        let load_data2 = localStorage.getItem("Payment_history");
+        let load_data_obj2 = JSON.parse(load_data2);
+
+        $scope.load_data_obj = load_data_obj;
+        $scope.load_data_obj2 = load_data_obj2;
+
+        //Check payment if there is history or not
+        if (load_data2 == null) {
+            $scope.hasHistory = false;
+        } else {
+            $scope.hasHistory = true;
+        }
+
     });
 
     japanese_ceramics_app.controller("ec_checkout_ctrl", function ($scope, $rootScope) {
-        $scope.saveInfo=($event)=>{
-            if ($scope.fname== null || $scope.lname==null || $scope.address==null || $scope.country==null || $scope.city==null || $scope.zip==null) {
+        $scope.saveInfo = ($event) => {
+            if ($scope.fname == null || $scope.lname == null || $scope.address == null || $scope.country == null || $scope.city == null || $scope.zip == null) {
 
                 alert("Fill out everything but optionals")
                 $event.preventDefault()
 
             } else {
-                let Json_Data = {fname:$scope.fname, lname:$scope.lname, address:$scope.address, optional1:$scope.optional1, country:$scope.country, city:$scope.city, zip:$scope.zip, optional2:$scope.optional2, contact:$scope.contact};
+                let Json_Data = { fname: $scope.fname, lname: $scope.lname, address: $scope.address, optional1: $scope.optional1, country: $scope.country, city: $scope.city, zip: $scope.zip, optional2: $scope.optional2, contact: $scope.contact };
                 let send_data = JSON.stringify(Json_Data);
-                localStorage.setItem("User1Info",send_data);
+                localStorage.setItem("User1Info", send_data);
             }
         }
 
-        
+
     });
 
     japanese_ceramics_app.controller("ec_payment_ctrl", function ($scope, $rootScope) {
         $scope.title = "Payment";
-        $scope.savePayInfo=($event)=>{
-            if ($scope.cFname== null || $scope.cLname==null || $scope.CCN==null || $scope.SCN==null) {
-                alert("Fill out everything but optionals")
+        $scope.savePayInfo = ($event) => {
+            if ($scope.cFname == null || $scope.cLname == null || $scope.CCN == null || $scope.SCN == null) {
+                alert("Please make sure that all forms are filled out correctly.")
                 $event.preventDefault()
             } else {
-                Json_Data = {fname:$scope.cFname, lname:$scope.cLname, CCN:$scope.CCN, SCN:$scope.SCN, DMY:$scope.DMY};
+                let date = new Date;
+                let y = date.getFullYear();
+                let m = date.getMonth() + 1;
+                let d = date.getDate();
+                let formattedDate = d + "/" + m + "/" + y;
+                let Payment_history;
+
+                //Read and Create Payment history
+                if (localStorage.getItem("Payment_history") == null) {
+                    Payment_history = [];
+                    Payment_history.push({ total: $rootScope.totalPrice(), paymentDate: formattedDate });
+                } else {
+                    let Payment_history_data = localStorage.getItem("Payment_history");
+                    Payment_history = JSON.parse(Payment_history_data);
+                    Payment_history.push({ total: $rootScope.totalPrice(), paymentDate: formattedDate });
+                }
+                Json_Data = { fname: $scope.cFname, lname: $scope.cLname, CCN: $scope.CCN, SCN: $scope.SCN, DMY: $scope.DMY };
+
                 send_data = JSON.stringify(Json_Data);
-                localStorage.setItem("User2Info",send_data);             
+                history_data = JSON.stringify(Payment_history);
+
+                localStorage.setItem("User2Info", send_data);
+                localStorage.setItem("Payment_history", history_data);
+
+                //Initialize cart
+                $rootScope.cart = {};
             }
         }
     });
