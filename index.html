@@ -12,6 +12,7 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./img/common/favicon.ico">
 </head>
 
 <body ng-app="japanese_ceramics_app">
@@ -21,7 +22,7 @@
                 <h3 class="m-0"><a class="text-white text-decoration-none" href="#/!">Japanese Ceramics</a></h3>
             </li>
             <li class="py-2 px-4"><a class="text-white text-decoration-none" href="#!shop">Shop</a></li>
-            <li class="py-2 px-5 ml-auto"><a class="text-decoration-none text-white" href="#!cart"><i
+            <li class="py-2 mx-5 ml-auto"><a class="text-decoration-none text-white" href="#!cart"><i
                         class="bi-bag mx-2"></i>Cart</a></li>
         </ul>
     </nav>
@@ -54,10 +55,10 @@
         $rootScope.items.set(9, { id: 9, name: "Seto Yaki", price: 85, quantity: 0, image: './img/products/setoyaki.jpeg', discription: "The birthplace is located at the foot of Mt. Sanage in the southeastern part of Seto City. In the first half of the 9th century, new ash-glazed ceramics using plant ashes as glaze began to be fired at the Sanage kiln." });
         $rootScope.items.set(11, { id: 11, name: "Bizen Yaki", price: 80, quantity: 0, image: './img/products/bizenyaki.jpeg', discription: "Bizen Pottery is made in Bizen City, Okayama Prefecture. Each piece is molded from high-quality clay, dried, and fired without being painted or glazed, thus revealing the rich earthy flavor of the clay." });
         $rootScope.items.set(12, { id: 12, name: "Koimari Yaki", price: 150, quantity: 0, image: './img/products/koimari.jpeg', discription: "Imariyaki refers to porcelain made in Hizen Province, which is now Saga and Nagasaki Prefectures.Arita-yaki, Mikawachi-yaki, Hasami-yaki, etc. are also included in Imari-yaki, and they are collectively called Imari because the port of Imari was used to transport porcelain." });
-        
+
         //Cart
         $rootScope.cart = {};
-        
+
         //calculate subtotal
         $rootScope.subTotal = () => {
             let subTotalResult = 0;
@@ -66,10 +67,10 @@
             }
             return subTotalResult;
         }
-        
+
         //Fixed Shipping Fee
         $rootScope.shippingFee = 100;
-        
+
         //Calculate total price
         $rootScope.totalPrice = () => {
             return $rootScope.subTotal() + $rootScope.shippingFee;
@@ -87,6 +88,8 @@
             $scope.tmpItem = "";
         }
         $scope.itemLists = Object.fromEntries($rootScope.items);
+
+        //Set selected item id
         $scope.showItemInfo = (key) => {
             $rootScope.tmpItem = $scope.itemLists[key].id
         }
@@ -94,9 +97,10 @@
 
     japanese_ceramics_app.controller("ec_details_ctrl", function ($scope, $rootScope) {
         $scope.itemData = $rootScope.items.get($rootScope.tmpItem);
-        
+
         //Initialize the value for input form
         $scope.quantity = 1;
+
         //To add item to cart
         $scope.addToCart = () => {
             let newItem = { id: $scope.itemData.id, name: $scope.itemData.name, price: $scope.itemData.price, quantity: $scope.quantity, image: $scope.itemData.image, discription: $scope.itemData.discription };
@@ -107,6 +111,11 @@
 
     japanese_ceramics_app.controller("ec_cart_ctrl", function ($scope, $rootScope) {
         $scope.title = "Cart";
+
+        //Check Whether items in cart or not
+        $scope.isNoItem = (Object.keys($rootScope.cart).length == 0);
+
+        //Function for remove button
         $scope.removeFromCart = (itemId) => {
             delete $rootScope.cart[itemId];
             $scope.isNoItem = (Object.keys($rootScope.cart).length == 0);
